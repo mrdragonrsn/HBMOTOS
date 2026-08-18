@@ -3,17 +3,19 @@
   "builds": [
     {
       "src": "index.html",
-      "use": "@vercel/static",
-      "config": {
-        "root": "/"
-      }
+      "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "cleanUrls": true,
+  "headers": [
     {
-      "src": "/^((?!svg)$)",
-      "dest": "/"
+      "source": "/assets/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, max-age=0"
+        }
+      ]
     }
-  ],
-  "cleanUrls": true
+  ]
 }
