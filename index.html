@@ -57,7 +57,7 @@
         .hero-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('fachada.jpg');
+            background-image: url('assets/images/481204197_1160055609462708_171470066066579099_n.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.25;
@@ -562,16 +562,16 @@
         
         <div class="carousel-container fade-in visible">
             <div class="carousel-slide active">
-                <img src="p6.jpeg" alt="Promoção Pneus">
+                <img src="assets/images/p6.jpeg" alt="Promoção Pneus">
             </div>
             <div class="carousel-slide">
-                <img src="p3.jpeg" alt="Relação Riffel">
+                <img src="assets/images/p3.jpeg" alt="Relação Riffel">
             </div>
             <div class="carousel-slide">
-                <img src="p8.jpeg" alt="Capacetes em Promoção">
+                <img src="assets/images/p8.jpeg" alt="Capacetes em Promoção">
             </div>
             <div class="carousel-slide">
-                <img src="prpaganda2.jpeg" alt="Troca de Óleo">
+                <img src="assets/images/prpaganda2.jpeg" alt="Troca de Óleo">
             </div>
         </div>
 
@@ -605,17 +605,17 @@
         </div>
         
         <div class="deck-container fade-in visible">
-            <div class="deck-card" onclick="openModal('Propaganda1.jpeg')">
-                <img src="Propaganda1.jpeg" alt="Promoção Óleo">
+            <div class="deck-card" onclick="openModal('assets/images/Propaganda1.jpeg')">
+                <img src="assets/images/Propaganda1.jpeg" alt="Promoção Óleo">
             </div>
-            <div class="deck-card" onclick="openModal('prpaganda2.jpeg')">
-                <img src="prpaganda2.jpeg" alt="Promoção Pneus">
+            <div class="deck-card" onclick="openModal('assets/images/prpaganda2.jpeg')">
+                <img src="assets/images/prpaganda2.jpeg" alt="Promoção Pneus">
             </div>
-            <div class="deck-card" onclick="openModal('p4.jpeg')">
-                <img src="p4.jpeg" alt="Relação Nation">
+            <div class="deck-card" onclick="openModal('assets/images/p4.jpeg')">
+                <img src="assets/images/p4.jpeg" alt="Relação Nation">
             </div>
-            <div class="deck-card" onclick="openModal('p5.jpeg')">
-                <img src="p5.jpeg" alt="Serviços Especiais">
+            <div class="deck-card" onclick="openModal('assets/images/p5.jpeg')">
+                <img src="assets/images/p5.jpeg" alt="Serviços Especiais">
             </div>
         </div>
 
@@ -738,9 +738,6 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in').error = function() {
-                // fallback
-            };
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
     </script>
