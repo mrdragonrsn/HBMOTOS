@@ -40,6 +40,7 @@
             transform: translateY(0);
         }
 
+        /* HEADER E ANIMAÇÕES FLUTUANTES */
         header {
             position: relative;
             height: 75vh;
@@ -56,11 +57,47 @@
         .hero-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('assets/images/481204197_1160055609462708_171470066066579099_n.jpg');
+            background-image: url('Fachada%20HB%20Motos.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.15;
             z-index: 0;
+        }
+
+        .floating-objects {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none;
+        }
+
+        .float-obj {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.15);
+            animation: floatAnim linear infinite;
+        }
+
+        .float-obj.blue-neon {
+            color: rgba(0, 68, 255, 0.4);
+            filter: drop-shadow(0 0 15px rgba(0, 68, 255, 0.8));
+        }
+
+        .obj-1 { top: 15%; left: 10%; font-size: 5rem; animation-duration: 25s; animation-name: floatAnimRight; }
+        .obj-2 { top: 60%; left: 15%; font-size: 4rem; animation-duration: 20s; animation-name: floatAnimLeft; }
+        .obj-3 { top: 20%; left: 80%; font-size: 6rem; animation-duration: 30s; animation-name: floatAnimLeft; }
+        .obj-4 { top: 70%; left: 75%; font-size: 4.5rem; animation-duration: 22s; animation-name: floatAnimRight; }
+        .obj-5 { top: 10%; left: 45%; font-size: 3rem; animation-duration: 18s; animation-name: floatAnimLeft; }
+        .obj-6 { top: 80%; left: 40%; font-size: 3.5rem; animation-duration: 26s; animation-name: floatAnimRight; }
+
+        @keyframes floatAnimRight {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        @keyframes floatAnimLeft {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(40px) rotate(-180deg); }
+            100% { transform: translateY(0px) rotate(-360deg); }
         }
 
         .logo-box {
@@ -203,7 +240,6 @@
             border-radius: 2px;
         }
 
-        /* Ajuste do tamanho do Carrossel */
         .carousel-container {
             max-width: 1000px;
             height: 500px; 
@@ -238,16 +274,14 @@
             display: block;
         }
 
-        /* -------------------------------------
-           EFEITO LEQUE DE CARTAS (Deck Effect)
-        -------------------------------------- */
+        /* EFEITO LEQUE DE CARTAS */
         .deck-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 80px auto;
-            padding: 40px 20px 100px; /* Padding extra em baixo para o hover não cortar */
-            perspective: 1200px; /* Dá profundidade 3D */
+            padding: 40px 20px 100px;
+            perspective: 1200px;
             max-width: 1000px;
         }
 
@@ -259,30 +293,28 @@
             background: #111;
             box-shadow: -15px 10px 30px rgba(0, 0, 0, 0.8);
             border: 2px solid rgba(0, 68, 255, 0.3);
-            margin-left: -140px; /* Sobreposição forte */
+            margin-left: -140px;
             transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             position: relative;
-            filter: brightness(0.8) grayscale(30%); /* Deixa mais escuro até passar o mouse */
+            filter: brightness(0.8) grayscale(30%);
         }
 
         .deck-card:first-child {
             margin-left: 0;
         }
 
-        /* Posições e rotações iniciais (efeito de leque) */
         .deck-card:nth-child(1) { transform: rotate(-15deg) translateY(20px); z-index: 1; }
         .deck-card:nth-child(2) { transform: rotate(-5deg) translateY(5px); z-index: 2; }
         .deck-card:nth-child(3) { transform: rotate(5deg) translateY(5px); z-index: 3; }
         .deck-card:nth-child(4) { transform: rotate(15deg) translateY(20px); z-index: 4; }
 
-        /* Quando o mouse passa por cima (Hover) */
         .deck-card:hover {
-            transform: translateY(-50px) rotate(0deg) scale(1.15) !important; /* Levanta, alinha e cresce */
-            z-index: 10 !important; /* Vem para a frente de todos */
+            transform: translateY(-50px) rotate(0deg) scale(1.15) !important;
+            z-index: 10 !important;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 68, 255, 0.6);
             border-color: var(--primary-blue);
-            filter: brightness(1.1) grayscale(0%); /* Restaura a cor vibrante */
+            filter: brightness(1.1) grayscale(0%);
         }
 
         .deck-card img {
@@ -292,9 +324,7 @@
             display: block;
         }
 
-        /* -------------------------------------
-           JANELA FLUTUANTE (MODAL / LIGHTBOX)
-        -------------------------------------- */
+        /* JANELA FLUTUANTE (MODAL) */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -350,7 +380,6 @@
             color: var(--primary-blue);
         }
 
-        /* DEMAIS SEÇÕES */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -473,7 +502,6 @@
             header p { font-size: 1rem; }
             .carousel-container { height: 300px; max-width: 100%; margin: 0 15px 40px; }
             
-            /* Ajuste do leque de cartas para celular (vira uma pilha vertical) */
             .deck-container {
                 flex-direction: column;
                 margin: 40px auto;
@@ -481,7 +509,7 @@
             }
             .deck-card {
                 margin-left: 0;
-                margin-top: -150px; /* Sobreposição vertical */
+                margin-top: -150px;
                 width: 100%;
                 max-width: 300px;
             }
@@ -499,52 +527,54 @@
 </head>
 <body>
 
-    <!-- Header com background da oficina -->
     <header>
         <div class="hero-bg"></div>
+        <div class="floating-objects">
+            <i class="fa-solid fa-gear float-obj obj-1 blue-neon"></i>
+            <i class="fa-solid fa-wrench float-obj obj-2"></i>
+            <i class="fa-solid fa-motorcycle float-obj obj-3"></i>
+            <i class="fa-solid fa-oil-can float-obj obj-4 blue-neon"></i>
+            <i class="fa-solid fa-gear float-obj obj-5"></i>
+            <i class="fa-solid fa-screwdriver-wrench float-obj obj-6 blue-neon"></i>
+        </div>
         <div class="logo-box">
             <h1><span>H</span>B MOTOS</h1>
             <p>Especialistas em Alta Performance</p>
         </div>
     </header>
 
-    <!-- Stats bar -->
     <div class="stats-bar">
         <div class="stat-item"><i class="fas fa-shield-alt"></i> Garantia de Serviço</div>
         <div class="stat-item"><i class="fas fa-star"></i> Excelência e Qualidade</div>
         <div class="stat-item"><i class="fas fa-cogs"></i> Peças Originais</div>
     </div>
 
-    <!-- Tab Navigation -->
     <nav>
         <button class="tab-btn active" onclick="openTab(event, 'oficina')">A Oficina</button>
         <button class="tab-btn" onclick="openTab(event, 'produtos')">Produtos & Promoções</button>
         <button class="tab-btn" onclick="openTab(event, 'contato')">Fale Conosco</button>
     </nav>
 
-    <!-- ABA 1: A OFICINA -->
     <div id="oficina" class="tab-content active">
-        <!-- Carrossel de Promoções -->
         <div class="section-header fade-in visible">
             <h2 class="section-title">Oportunidades da Semana</h2>
         </div>
         
         <div class="carousel-container fade-in visible">
             <div class="carousel-slide active">
-                <img src="assets/images/p6.jpeg" alt="Promoção Pneus">
+                <img src="p6.jpeg" alt="Promoção Pneus">
             </div>
             <div class="carousel-slide">
-                <img src="assets/images/p3.jpeg" alt="Relação Riffel">
+                <img src="p3.jpeg" alt="Relação Riffel">
             </div>
             <div class="carousel-slide">
-                <img src="assets/images/p8.jpeg" alt="Capacetes em Promoção">
+                <img src="p8.jpeg" alt="Capacetes em Promoção">
             </div>
             <div class="carousel-slide">
-                <img src="assets/images/prpaganda2.jpeg" alt="Troca de Óleo">
+                <img src="prpaganda2.jpeg" alt="Troca de Óleo">
             </div>
         </div>
 
-        <!-- Por que escolher -->
         <div class="section-header fade-in visible">
             <h2 class="section-title">Por que escolher a HB Motos?</h2>
         </div>
@@ -568,26 +598,24 @@
         </div>
     </div>
 
-    <!-- ABA 2: PRODUTOS E PROMOÇÕES (LEQUE DE CARTAS) -->
     <div id="produtos" class="tab-content">
         <div class="section-header fade-in visible">
             <h2 class="section-title">Catálogo de Produtos</h2>
             <p style="color: var(--text-muted); margin-top: 15px;">Passe o mouse ou clique nas cartas para ampliar as promoções.</p>
         </div>
         
-        <!-- Contêiner do Leque -->
         <div class="deck-container fade-in visible">
-            <div class="deck-card" onclick="openModal('assets/images/Propaganda1.jpeg')">
-                <img src="assets/images/Propaganda1.jpeg" alt="Promoção Óleo">
+            <div class="deck-card" onclick="openModal('Propaganda1.jpeg')">
+                <img src="Propaganda1.jpeg" alt="Promoção Óleo">
             </div>
-            <div class="deck-card" onclick="openModal('assets/images/prpaganda2.jpeg')">
-                <img src="assets/images/prpaganda2.jpeg" alt="Promoção Pneus">
+            <div class="deck-card" onclick="openModal('prpaganda2.jpeg')">
+                <img src="prpaganda2.jpeg" alt="Promoção Pneus">
             </div>
-            <div class="deck-card" onclick="openModal('assets/images/p4.jpeg')">
-                <img src="assets/images/p4.jpeg" alt="Relação Nation">
+            <div class="deck-card" onclick="openModal('p4.jpeg')">
+                <img src="p4.jpeg" alt="Relação Nation">
             </div>
-            <div class="deck-card" onclick="openModal('assets/images/p5.jpeg')">
-                <img src="assets/images/p5.jpeg" alt="Serviços Especiais">
+            <div class="deck-card" onclick="openModal('p5.jpeg')">
+                <img src="p5.jpeg" alt="Serviços Especiais">
             </div>
         </div>
 
@@ -597,7 +625,6 @@
         </div>
     </div>
 
-    <!-- ABA 3: FALE CONOSCO -->
     <div id="contato" class="tab-content">
         <div class="section-header fade-in visible">
             <h2 class="section-title">Fale Conosco</h2>
@@ -640,7 +667,6 @@
         Localizado em Sertãozinho, SP.</p>
     </footer>
 
-    <!-- JANELA FLUTUANTE (MODAL/LIGHTBOX) -->
     <div class="modal-overlay" id="imageModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -649,7 +675,6 @@
     </div>
 
     <script>
-        // Sistema de Abas
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             
@@ -672,32 +697,27 @@
             });
         }
 
-        // Sistema do Modal de Imagem (Leque de Cartas)
         function openModal(imageSrc) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             
             modalImage.src = imageSrc;
             modal.classList.add('active');
-            // Impede a rolagem da tela ao fundo quando o modal estiver aberto
             document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.classList.remove('active');
-            // Restaura a rolagem da tela
             document.body.style.overflow = 'auto'; 
         }
 
-        // Fecha o modal ao clicar fora da imagem (no fundo escuro)
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
-        // Carrossel automático 
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         
@@ -709,7 +729,6 @@
         
         setInterval(nextSlide, 7000);
 
-        // Animações de scroll
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -722,6 +741,5 @@
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
     </script>
-
 </body>
 </html>
