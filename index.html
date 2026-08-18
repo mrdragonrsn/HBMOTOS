@@ -9,363 +9,95 @@
         :root {
             --bg-color: #0a0a0d;
             --primary-blue: #0044ff;
-            --primary-glow: rgba(0, 68, 255, 0.6);
             --text-main: #ffffff;
             --text-muted: #aaaaaa;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background: var(--bg-color); color: var(--text-main); }
         header {
-            position: relative;
-            height: 75vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: radial-gradient(circle at center, #101a30 0%, #0a0a0d 70%);
-            overflow: hidden;
-            border-bottom: 2px solid rgba(0, 68, 255, 0.2);
+            position: relative; height: 60vh; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; background: linear-gradient(135deg, #101a30, #0a0a0d);
         }
-
         .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('assets/images/481204197_1160055609462708_171470066066579099_n.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.10;
-            z-index: 0;
+            background-size: cover; background-position: center; opacity: 0.10; z-index: 0;
         }
-
-        .logo-box {
-            position: relative;
-            z-index: 2;
-            animation: glowPulse 3s infinite alternate;
-        }
-
-        @keyframes glowPulse {
-            0% { filter: drop-shadow(0 0 8px rgba(0, 68, 255, 0.4)); }
-            100% { filter: drop-shadow(0 0 25px var(--primary-blue)); }
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #fff, #88b3ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-        }
-
-        h1 span {
-            color: var(--primary-blue);
-            -webkit-text-fill-color: var(--primary-blue);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .stats-bar {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            background: rgba(0, 68, 255, 0.1);
-            padding: 15px 30px;
-            border-top: 1px solid rgba(0, 68, 255, 0.3);
-            border-bottom: 1px solid rgba(0, 68, 255, 0.3);
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--text-main);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            background: rgba(18, 18, 22, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .tab-btn {
-            background: transparent;
-            color: var(--text-muted);
-            border: 2px solid transparent;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .tab-btn:hover { color: var(--text-main); }
-        .tab-btn.active {
-            border-color: var(--primary-blue);
-            color: var(--primary-blue);
-            background: rgba(0, 68, 255, 0.1);
-        }
-
-        .tab-content {
-            display: none;
-            padding-bottom: 100px;
-        }
-
-        .tab-content.active { display: block; }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin: 60px auto 30px;
-            text-align: center;
-            color: var(--text-main);
-        }
-
-        .carousel-container {
-            max-width: 500px;
-            margin: 0 auto 20px;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            border: 2px solid rgba(0, 68, 255, 0.3);
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .carousel-slide.active { opacity: 1; }
-        .carousel-slide img { width: 100%; height: 350px; object-fit: cover; }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 0 20px;
-        }
-
-        .image-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(0, 68, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .image-card:hover { transform: translateY(-5px); }
-        .image-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
-
-        .feature-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 35px 25px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature-box:hover { transform: translateY(-8px); }
-        .feature-box i { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; }
-        .feature-box h4 { font-size: 1.2rem; margin-bottom: 12px; color: var(--text-main); }
-        .feature-box p { color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 0 20px;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 35px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .contact-card:hover { transform: translateY(-8px); }
-        .contact-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; }
-        .contact-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); }
-        .contact-card p { color: var(--text-muted); margin-bottom: 15px; }
-        .contact-btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: var(--primary-blue);
-            color: #fff;
-            border-radius: 25px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .contact-btn:hover { background: #0033cc; transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 68, 255, 0.5); }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: #000;
-            border-top: 1px solid #222;
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .section-title { font-size: 2rem; }
-        }
+        h1 { font-size: 3.5rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 3px; margin-bottom: 10px; color: var(--text-main); }
+        p { font-size: 1.1rem; color: var(--text-muted); }
+        nav { display: flex; justify-content: center; gap: 25px; padding: 15px;
+            background: rgba(18, 18, 22, 0.95); position: sticky; top: 0; z-index: 100; }
+        .btn { padding: 10px 20px; background: var(--primary-blue); color: #fff;
+            border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn.active { background: #0033cc; }
+        .section { text-align: center; margin: 40px auto; max-width: 1200px; padding: 0 20px; }
+        .section h2 { font-size: 2rem; color: var(--primary-blue); margin-bottom: 20px; }
+        .gallery img { max-width: 100%; height: auto; border-radius: 10px;
+            border: 2px solid var(--primary-blue); margin: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        footer { text-align: center; padding: 25px; background: #000;
+            color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
     <header>
         <div class="hero-bg"></div>
-        <div class="logo-box">
-            <h1>HB MOTOS</h1>
-            <p>ESPECIALISTAS EM ALTA PERFORMANCE</p>
-        </div>
+        <h1>HB MOTOS</h1>
+        <p>Oficina de Moto • Peças • Acessórios • Serviços</p>
     </header>
 
-    <div class="stats-bar">
-        <div style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-shield-alt"></i> Garantia</div>
-        <div style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-star"></i> Excelência</div>
-        <div style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-cogs"></i> Peças</div>
-    </div>
-
     <nav>
-        <button class="tab-btn active" onclick="openTab(event,'oficina')">A OFICINA</button>
-        <button class="tab-btn" onclick="openTab(event,'produtos')">PRODUTOS</button>
-        <button class="tab-btn" onclick="openTab(event,'contato')">CONTATO</button>
+        <button class="btn" onclick="showTab('galeria')">GALERIA</button>
+        <button class="btn" onclick="showTab('servicos')">SERVIÇOS</button>
+        <button class="btn" onclick="showTab('contato')">CONTATO</button>
     </nav>
 
-    <div id="oficina" class="tab-content active">
-        <h2 class="section-title">OPORTUNIDADES DA SEMANA</h2>
-        <div class="carousel-container">
-            <div class="carousel-slide active"><img src="assets/images/p6.jpeg" alt="Promoção Pneus"></div>
-            <div class="carousel-slide"><img src="assets/images/p3.jpeg" alt="Relação Riffel"></div>
-            <div class="carousel-slide"><img src="assets/images/p8.jpeg" alt="Capacetes"></div>
-            <div class="carousel-slide"><img src="assets/images/prpaganda2.jpeg" alt="Troca de Óleo"></div>
-        </div>
-
-        <h2 class="section-title">NOSSA OFICINA</h2>
-        <div class="image-grid">
-            <div class="image-card"><img src="assets/images/p3.jpeg" alt="Oficina"></div>
-            <div class="image-card"><img src="assets/images/p4.jpeg" alt="Equipamentos"></div>
-            <div class="image-card"><img src="assets/images/p5.jpeg" alt="Mecânicos"></div>
-            <div class="image-card"><img src="assets/images/p7.jpeg" alt="Serviços"></div>
-        </div>
-
-        <h2 class="section-title">POR QUE ES COLHER A HB MOTOS?</h2>
-        <div class="image-grid">
-            <div class="feature-box">
-                <i class="fas fa-user-cog"></i>
-                <h4>Mecânicos Especializados</h4>
-                <p>Equipe treinada para resolver problemas complexos.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-stopwatch"></i>
-                <h4>Agilidade na Entrega</h4>
-                <p>Processos otimizados para suas motos voltar rápido.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-handshake"></i>
-                <h4>Atendimento Transparente</h4>
-                <p>Sem surpresas no orçamento final.</p>
-            </div>
+    <div id="galeria" class="section" style="display:block;">
+        <h2>Nossa Oficina</h2>
+        <div class="gallery">
+            <img src="assets/images/p3.jpeg" alt="Oficina HB Motos">
+            <img src="assets/images/p4.jpeg" alt="Equipamentos HB Motos">
+            <img src="assets/images/p5.jpeg" alt="Mecânicos">
+            <img src="assets/images/p6.jpeg" alt="Produção HB Motos">
+            <img src="assets/images/p7.jpeg" alt="Área de Serviço">
+            <img src="assets/images/p8.jpeg" alt="Clientes HB Motos">
         </div>
     </div>
 
-    <div id="produtos" class="tab-content">
-        <h2 class="section-title">CATÁLOGO</h2>
-        <div class="image-grid">
-            <div class="image-card"><img src="assets/images/Propaganda1.jpeg" alt="Promoção Óleo"></div>
-            <div class="image-card"><img src="assets/images/prpaganda2.jpeg" alt="Promoção Pneus"></div>
-            <div class="image-card"><img src="assets/images/p4.jpeg" alt="Relação Nation"></div>
-            <div class="image-card"><img src="assets/images/p5.jpeg" alt="Serviços"></div>
-        </div>
+    <div id="servicos" class="section" style="display:none;">
+        <h2>Nossos Serviços</h2>
+        <ul style="list-style:none; max-width:600px; margin:0 auto; text-align:left;">
+            <li style="margin:10px 0; padding-left:20px; position:relative;">✔ Mecânica Geral</li>
+            <li style="margin:10px 0; padding-left:20px; position:relative;">✔ Troca de Óleo</li>
+            <li style="margin:10px 0; padding-left:20px; position:relative;">✔ Revisão de Suspensão</li>
+            <li style="margin:10px 0; padding-left:20px; position:relative;">✔ Baterias</li>
+            <li style="margin:10px 0; padding-left:20px; position:relative;">✔ Peças e Acessórios</li>
+        </ul>
     </div>
 
-    <div id="contato" class="tab-content">
-        <h2 class="section-title">FALE CONOSCO</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <i class="fab fa-whatsapp contact-icon"></i>
-                <h3>WhatsApp</h3>
-                <p>(16) 98830-3057<br>(16) 98871-5264</p>
-                <a href="https://wa.me/5516988303057" class="contact-btn">Zap 1</a>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-instagram contact-icon"></i>
-                <h3>Instagram</h3>
-                <p>@hbmotos244</p>
-                <a href="https://instagram.com/hbmotos244" class="contact-btn">@hbmotos244</a>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-map-marker-alt contact-icon"></i>
-                <h3>Localização</h3>
-                <p>Antônio Carlos Furlaneto, 62<br>Sertãozinho - SP</p>
-            </div>
-        </div>
+    <div id="contato" class="section" style="display:none;">
+        <h2>Contato</h2>
+        <p><strong>Endereço:</strong> Antônio Carlos Furlaneto, 62<br>Sertãozinho - SP</p>
+        <p><strong>WhatsApp:</strong> (16) 98830-3057 | (16) 98871-5264</p>
+        <p><strong>E-mail:</strong> erlanioramalhodocarmo@gmail.com</p>
+        <p><strong>Instagram:</strong> @hbmotos244</p>
     </div>
 
     <footer>
-        <p>&copy; 2024 HB Motos - Todos os direitos reservados.</p>
+        <p>&copy; 2024 HB Motos. Todos os direitos reservados.</p>
         <p>Sertãozinho, SP</p>
     </footer>
 
     <script>
-        function openTab(evt, tabName) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
-            window.scrollTo({top: document.querySelector('nav').offsetTop - 20, behavior: 'smooth'});
+        function showTab(tab) {
+            document.querySelectorAll('[id]').forEach(el => el.style.display = 'none');
+            document.getElementById(tab).style.display = 'block';
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
-
-        let current = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        setInterval(() => {
-            slides[current].classList.remove('active');
-            current = (current + 1) % slides.length;
-            slides[current].classList.add('active');
-        }, 4000);
     </script>
 </body>
 </html>
