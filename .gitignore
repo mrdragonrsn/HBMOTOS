@@ -1,0 +1,14 @@
+# Imagens duplicadas que não devem ser versionadas
+p3.jpeg
+p4.jpeg
+p5.jpeg
+p6.jpeg
+p7.jpeg
+p8.jpeg
+prpaganda2.jpeg
+Fachada HB Motos.jpg
+
+# Arquivos locais
+.DS_Store
+Thumbs.db
+*.log
