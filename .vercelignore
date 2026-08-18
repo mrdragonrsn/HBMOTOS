@@ -1,0 +1,22 @@
+# Arquivos e pastas a ignorar
+.git
+.gitignore
+README.md
+.vercelignore
+.vercel
+.vscode
+.vscode
+.DS_Store
+Thumbs.db
+.env
+node_modules
+.nyc_output
+Coverage
+
+# Logs
+*.log
+*.log.*
+
+# Temporários
+tmp
+temp
